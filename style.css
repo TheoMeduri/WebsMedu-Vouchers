@@ -1,0 +1,232 @@
+/* Configuração geral */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  /* Container do cartão */
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Cartão do voucher */
+  .voucher-card {
+    width: 480px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 
+      0 10px 20px rgba(0, 0, 0, 0.2),
+      0 5px 15px rgba(30, 60, 114, 0.5);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: float 3s ease-in-out infinite;
+    color: #1e3c72;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Efeito luminoso no fundo */
+  .voucher-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(30, 60, 114, 0.15), transparent 70%);
+    transform: rotate(0deg);
+    animation: glow 6s linear infinite;
+    z-index: -1;
+  }
+  
+  @keyframes glow {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Cabeçalho */
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card-header h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #1e3c72;
+  }
+  
+  .card-header i {
+    font-size: 2rem;
+    color: #2a5298;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+  
+  /* Conteúdo */
+  .card-content {
+    text-align: center;
+  }
+  
+  .voucher-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2a5298;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+  }
+  
+  .voucher-amount {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #1e3c72;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px rgba(30, 60, 114, 0.4);
+  }
+  
+  .voucher-code {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(30, 60, 114, 0.8);
+  }
+
+  #code-show {
+    background-color: #1e3c72;
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  #code {
+    transition: .5s ease-in-out;
+  }
+
+  #code-show:hover #code {
+    color: #fff;
+  }
+  
+  /* Rodapé */
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card-footer p {
+    font-size: 0.9rem;
+    color: rgba(30, 60, 114, 0.7);
+  }
+  
+  button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(30, 60, 114, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(30, 60, 114, 0.6);
+    background: linear-gradient(135deg, #2a5298, #1e3c72);
+  }
+
+  /* Responsividade */
+@media (max-width: 768px) {
+    .voucher-card {
+      width: 400px; /* Ajusta o tamanho do cartão para ocupar mais espaço em telas menores */
+      padding: 15px;
+    }
+  
+    .card-header h1 {
+      font-size: 1.5rem; /* Reduz o tamanho do texto do título */
+    }
+  
+    .card-header i {
+      font-size: 1.8rem; /* Ajusta o ícone */
+    }
+  
+    .voucher-title {
+      font-size: 1.1rem; /* Ajusta a fonte do título do voucher */
+    }
+  
+    .voucher-amount {
+      font-size: 2.5rem; /* Reduz o valor principal */
+    }
+  
+    .voucher-code {
+      font-size: 0.9rem; /* Ajusta o tamanho do código */
+    }
+  
+    button {
+      font-size: 0.9rem; /* Ajusta o texto do botão */
+      padding: 8px 18px; /* Reduz o tamanho do botão */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .voucher-card {
+      width: 350px; /* Ocupa toda a largura do dispositivo */
+      padding: 10px; /* Reduz as margens internas */
+      border-radius: 15px; /* Bordas mais suaves */
+    }
+  
+    .card-header h1 {
+      font-size: 1.3rem; /* Título menor */
+    }
+  
+    .card-content {
+      padding: 10px 0; /* Espaçamento mais compacto */
+    }
+  
+    .voucher-amount {
+      font-size: 2.2rem; /* Valor reduzido para caber na tela */
+    }
+  
+    button {
+      font-size: 1rem; /* Botão menor */
+    }
+  }
+  
